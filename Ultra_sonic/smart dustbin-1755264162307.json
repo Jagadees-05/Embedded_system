@@ -1,0 +1,367 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 7,
+  "links": [],
+  "panels": [
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 9,
+        "x": 0,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "![Alt](https://5.imimg.com/data5/SELLER/Default/2023/7/329768333/IV/KL/VY/105632319/plastic-dustbin.png)",
+        "mode": "markdown"
+      },
+      "pluginVersion": "12.0.2+security-01",
+      "title": "Image",
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "c78471b4-8f8b-4612-b232-0e8e0f18dd11"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 15,
+        "x": 9,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "12.0.2+security-01",
+      "targets": [
+        {
+          "dataset": "dustbin",
+          "datasource": {
+            "type": "mysql",
+            "uid": "c78471b4-8f8b-4612-b232-0e8e0f18dd11"
+          },
+          "editorMode": "builder",
+          "format": "table",
+          "rawSql": "SELECT * FROM dustbin.dustbin_data ORDER BY timestamp LIMIT 100 ",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "*",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 100,
+            "orderBy": {
+              "property": {
+                "name": "timestamp",
+                "type": "string"
+              },
+              "type": "property"
+            }
+          },
+          "table": "dustbin_data"
+        }
+      ],
+      "title": "Gauge",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "c78471b4-8f8b-4612-b232-0e8e0f18dd11"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 15,
+        "x": 9,
+        "y": 8
+      },
+      "id": 1,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.2+security-01",
+      "targets": [
+        {
+          "dataset": "dustbin",
+          "datasource": {
+            "type": "mysql",
+            "uid": "c78471b4-8f8b-4612-b232-0e8e0f18dd11"
+          },
+          "editorMode": "builder",
+          "format": "table",
+          "rawSql": "SELECT * FROM dustbin.dustbin_data ORDER BY timestamp ASC LIMIT 102 ",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "*",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 102,
+            "orderBy": {
+              "property": {
+                "name": "timestamp",
+                "type": "string"
+              },
+              "type": "property"
+            },
+            "orderByDirection": "ASC"
+          },
+          "table": "dustbin_data"
+        }
+      ],
+      "title": "dustbin",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "c78471b4-8f8b-4612-b232-0e8e0f18dd11"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 9,
+        "x": 0,
+        "y": 9
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.2+security-01",
+      "targets": [
+        {
+          "dataset": "dustbin",
+          "datasource": {
+            "type": "mysql",
+            "uid": "c78471b4-8f8b-4612-b232-0e8e0f18dd11"
+          },
+          "editorMode": "builder",
+          "format": "table",
+          "rawSql": "SELECT * FROM dustbin.dustbin_data ORDER BY timestamp DESC LIMIT 100 ",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "*",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 100,
+            "orderBy": {
+              "property": {
+                "name": "timestamp",
+                "type": "string"
+              },
+              "type": "property"
+            },
+            "orderByDirection": "DESC"
+          },
+          "table": "dustbin_data"
+        }
+      ],
+      "title": "Dustbin",
+      "type": "histogram"
+    }
+  ],
+  "preload": false,
+  "refresh": false,
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "smart dustbin",
+  "uid": "f16e28e1-5876-4f01-a6b1-341699d14e47",
+  "version": 13
+}
